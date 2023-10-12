@@ -17,11 +17,11 @@ def test_load_simdata1():
 
 
 def test_llm_simple_prompt(note):
-    res = json.loads(get_note_label(note, n_ctx=512))
+    res = get_note_label(note, n_ctx=512)
     assert int(res["label"]) == 1
 
 
 def test_multiple_notes(notes):
     for pt_id, note, label in notes:
-        res = json.loads(get_note_label(note, n_ctx=512))
+        res = get_note_label(note, n_ctx=512)
         assert int(res["label"]) == int(label)

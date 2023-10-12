@@ -1,7 +1,7 @@
 """
 Interface to llama for labeling notes
 
-TODO: add parameters for llama_cpp
+TODO: add all parameters for llama_cpp
 """
 import os
 from dotenv import load_dotenv
@@ -48,6 +48,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
                 repeat_penalty=1.0,
                 temperature=0.1,
                 grammar=grammar,
+                echo=False,
                 **kwargs)
                 #  stop=["Q:", "\n"])
 
