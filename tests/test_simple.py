@@ -24,7 +24,7 @@ def test_llm_simple_prompt(note):
 def test_multiple_notes(notes):
     for note, label in notes:
         res = get_note_label(note, n_ctx=512)
-        if label == 'NA':
-            assert res["label"].isna()
+        if res['label'] == 'NA':
+            assert label == 0
         else:
-            assert int(res["label"]) == int(label)
+            assert res["label"] == label

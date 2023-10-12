@@ -26,7 +26,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
                 n_ctx=n_ctx, verbose=False)
 
     grammar_text = httpx.get("https://raw.githubusercontent.com/ggerganov/llama.cpp/master/grammars/json.gbnf").text
-    grammar = LlamaGrammar.from_string(grammar_text)
+    grammar = LlamaGrammar.from_string(grammar_text, verbose=False)
 
     tokenized_note  = note.split()
     if len(tokenized_note) < n_ctx - 60:
@@ -49,8 +49,8 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     Output:
     """
 
-    # return {"reason": "dvt", "label": 1}
-    print(prompt)
+    print("###########################")
+    print(note)
     response = llm(prompt,
                 max_tokens=-1,
                 repeat_penalty=1.0,
