@@ -16,10 +16,9 @@ one_note = """
 def note():
     yield one_note
 
-
 @pytest.fixture
 def notes():
-    data = load_simulation_df1("gpt_sim.csv").sample(10, random_state=42)
+    data = load_simulation_df1().sample(10, random_state=42)
     labels = data.label.tolist()
     notes = data.notes.tolist()
     yield zip(notes, labels)

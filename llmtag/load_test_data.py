@@ -16,3 +16,9 @@ def load_simulation_df1():
     :return pd.DataFrame that contains binary data
     '''
     return load_data_file('df_simulation1.csv')
+
+def load_labeled_df1():
+    '''
+    Load LLM-labeled simulation data
+    '''
+    return load_data_file('out.csv')
