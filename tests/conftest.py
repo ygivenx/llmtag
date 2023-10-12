@@ -1,4 +1,6 @@
 import pytest
+import pandas as pd
+
 
 one_note = """
             FINDINGS:
@@ -13,8 +15,10 @@ one_note = """
 def note():
     yield one_note
 
+
 @pytest.fixture
 def notes():
-    labels = [1, 0]
-    notes = [one_note, one_note]
+    data = pd.read_csv("benchmark_data/gpt_sim.csv")
+    labels = data.label.tolist()
+    notes = data.notes.tolist()
     yield zip(notes, labels)
