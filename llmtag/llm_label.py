@@ -41,6 +41,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     else:
         note = " ".join(tokenized_note[:n_ctx - 60])
     
+    # return {"reason": "dvt", "label": 1}
     print(note)
     response = llm(note + prompt,
                 max_tokens=-1,
@@ -51,8 +52,8 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
                 #  stop=["Q:", "\n"])
 
     try:
-        res = json.dumps(json.loads(response['choices'][0]['text']), indent=4)
+        res = json.loads(response['choices'][0]['text'])
     except json.JSONDecodeError:
-        res = response['choices'][0]['text']
+        return {"label": "NA", "reason": response['choices'][0]['text']}
 
     return res

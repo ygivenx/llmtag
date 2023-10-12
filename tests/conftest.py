@@ -1,6 +1,7 @@
 import pytest
 import pandas as pd
 
+from .load_test_data import load_simulation_df1
 
 one_note = """
             FINDINGS:
@@ -18,7 +19,7 @@ def note():
 
 @pytest.fixture
 def notes():
-    data = pd.read_csv("benchmark_data/gpt_sim.csv")
+    data = load_simulation_df1("gpt_sim.csv")
     labels = data.label.tolist()
     notes = data.notes.tolist()
     yield zip(notes, labels)

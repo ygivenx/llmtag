@@ -10,9 +10,9 @@ def load_data_file(filename):
     with open(file_path, 'r') as f:
         return pd.read_csv(f, encoding='latin-1')
 
-def load_simulation_df1():
+def load_simulation_df1(filename):
     '''
-    Load Simulation Data For Binary Endpoints DCA
+    :param filename: str
     :return pd.DataFrame that contains binary data
     '''
-    return load_data_file('df_simulation1.csv')
+    return load_data_file(filename)

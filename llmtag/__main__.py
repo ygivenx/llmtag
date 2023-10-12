@@ -3,7 +3,9 @@ Main entry point for the llmtag command line interface.
 """
 import argparse
 from pathlib import Path
+import pandas as pd
 from .llm_label import get_note_label
+import json
 
 
 def main():
@@ -16,14 +18,29 @@ def main():
     args = parser.parse_args()
     fp = Path(args.file)
 
+    res = []
+    labels = []
+    reasons = []
     if fp.exists():
+        if fp.suffix == ".csv":
+            df = pd.read_csv(fp)
+            print(df.head())
+            for i, row in df.iterrows():
+                note = row["notes"]
+                ser = get_note_label(note, n_ctx=args.context_length)
+                labels.append(ser["label"])
+                reasons.append(ser["reason"])
+            df["llm_label"] = labels
+            df["llm_reasons"] = reasons
+            print(df.head())
+            return df
+        
         with open(args.file, "r") as f:
             note = f.read()
+            res.append(get_note_label(note, n_ctx=args.context_length))
+            return res
     else:
         raise FileNotFoundError(f"File {args.file} not found")
-
-    res = get_note_label(note, n_ctx=args.context_length)
-    print(res)
 
 
 if __name__ == "__main__":
