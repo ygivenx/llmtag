@@ -56,8 +56,8 @@ for _ in range(50):
 
 # Create a DataFrame
 df = pd.DataFrame({
-    'Notes': notes,
-    'VTE_Label': labels
+    'notes': notes,
+    'label': labels
 })
 
 df.to_csv(csv_path, index=False)

@@ -10,9 +10,26 @@ def load_data_file(filename):
     with open(file_path, 'r') as f:
         return pd.read_csv(f, encoding='latin-1')
 
-def load_simulation_df1(filename):
+def load_simulation_df1():
     '''
-    :param filename: str
-    :return pd.DataFrame that contains binary data
+    :return pd.DataFrame that contains sim data
     '''
-    return load_data_file(filename)
+    return load_data_file('df_simulation1.csv')
+
+def load_gpt_sim():
+    '''
+    :return pd.DataFrame that contains gpt sim data
+    '''
+    return load_data_file('gpt_sim.csv')
+
+def load_gpt_sim_small():
+    '''
+    :return pd.DataFrame that contains gpt sim small data
+    '''
+    return load_data_file('gpt_sim_small.csv')
+
+def load_labeled_df1():
+    '''
+    Load LLM-labeled simulation data
+    '''
+    return load_data_file('out.csv')
