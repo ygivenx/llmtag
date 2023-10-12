@@ -12,7 +12,7 @@ Modules exported by this package:
 
 from llmtag import load_test_data
 from llmtag.llm_label import get_note_label
-from llmtag.download_llama_weights import download_llama_weights
+from llmtag.download_weights import download_llama_weights
 import os
 
 data = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
