@@ -47,15 +47,15 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     Patient has a history of DVT. No current symptoms noted
 
     output: {{'reason': 'No Symptoms found', 'label': 0}}
-    
+
     Note:
     {note}
 
     Output:
     """
 
-    print("###########################")
-    print(note)
+    # print("###########################")
+    # print(note)
     response = llm(prompt,
                 max_tokens=-1,
                 repeat_penalty=1.0,
@@ -76,5 +76,5 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     except json.JSONDecodeError:
         return {"label": "NA", "reason": response['choices'][0]['text']}
 
-    print(res)
+    # print(res)
     return res
