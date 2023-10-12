@@ -15,7 +15,7 @@ def note():
 
 @pytest.fixture
 def notes():
-    labels = [0, 0]
+    labels = [1, 0]
     notes = [one_note, one_note]
     for note, label in zip(notes, labels):
         yield note, label
