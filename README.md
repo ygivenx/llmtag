@@ -25,6 +25,10 @@
 1. Run all tests using `poetry run python -m pytest tests/`
 2. Run the default example: `poetry run python -m llmtag`
 
+### Results
+
+![labeled data](./llmtag.png)
+
 ## Libraries Used
 
 1. [llama.cpp](https://github.com/ggerganov/llama.cpp/tree/master)
