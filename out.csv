@@ -1,0 +1,50 @@
+patient_id,notes,label,llm_label,llm_reasons
+1,Patient complains of leg pain and swelling. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+2,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+3,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+4,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+6,Leg swelling and pain present. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+7,Chest pain with negative PE on CT scan.,0.0,1,Negative PE on CT scan
+8,Patient with history of PE experiences shortness of breath. CT scan is negative for PE.,0.0,0,CT scan is negative for PE
+9,Ultrasound shows DVT in the left leg.,1.0,1,Ultrasound shows DVT
+10,Patient complains of leg pain. Ultrasound negative for DVT.,0.0,0,Ultrasound negative for DVT
+11,Patient has a history of PE. No current symptoms noted.,0.0,0,No Symptoms found
+12,Chest discomfort and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+13,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+14,"Patient complains of leg pain,but ultrasound shows no clots.",0.0,0,No clots found
+15,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+16,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+17,Patient has a history of PE. No current symptoms noted.,0.0,0,No Symptoms found
+18,Leg swelling and pain present. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+19,Patient complains of leg pain and swelling. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+20,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+21,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+22,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+23,"Patient complains of leg pain,but ultrasound shows no clots.",0.0,0,No clots found
+24,Patient has a history of PE. No current symptoms noted.,0.0,0,No Symptoms found
+25,Leg swelling and pain present. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+26,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+27,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+28,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+29,Patient complains of leg pain and swelling. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+30,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+31,Patient has a history of PE. No current symptoms noted.,0.0,0,No Symptoms found
+32,Leg swelling and pain present. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+33,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+34,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+35,"Patient complains of leg pain,but ultrasound shows no clots.",0.0,0,No clots found
+36,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+37,Patient has a history of PE. No current symptoms noted.,0.0,0,No Symptoms found
+38,Leg swelling and pain present. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+39,Patient complains of leg pain and swelling. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+40,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+41,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+42,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+43,Leg swelling and pain present. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+44,Patient has a history of PE. No current symptoms noted.,0.0,0,No Symptoms found
+45,No complaints or symptoms related to VTE or PE.,0.0,0,No evidence of VTE or PE
+46,Patient experiences chest pain and shortness of breath. CT scan confirms PE.,1.0,1,CT scan confirms PE
+47,"Patient complains of leg pain,but ultrasound shows no clots.",0.0,0,No clots found
+48,Patient has a history of DVT. No current symptoms noted.,0.0,0,No Symptoms found
+49,Patient complains of leg pain and swelling. Ultrasound confirms DVT.,1.0,1,Ultrasound confirms DVT
+50,Patient has a history of PE. Currently experiencing chest pain but CT scan is negative for PE.,,0,CT scan is negative for PE

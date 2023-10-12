@@ -44,6 +44,11 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     output: {{'reason': 'Ultrasound confirms DVT', 'label': 1}}
 
     Note:
+    Patient has a history of DVT. No current symptoms noted
+
+    output: {{'reason': 'No Symptoms found', 'label': 0}}
+    
+    Note:
     {note}
 
     Output:
@@ -54,7 +59,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     response = llm(prompt,
                 max_tokens=-1,
                 repeat_penalty=1.0,
-                temperature=0.1,
+                temperature=0.0,
                 grammar=grammar,
                 echo=False,
                stop=["Note:\n", "\n"],
@@ -63,6 +68,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
 
     try:
         res = json.loads(response['choices'][0]['text'])
+        print(res)
         if "label" not in res.keys():
             res["label"] = "NA"
         if "reason" not in res.keys():
