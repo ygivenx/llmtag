@@ -23,7 +23,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     llm = Llama(model_path=model_path,
                 n_threads=n_threads,
                 n_batch=n_batch,
-                n_ctx=n_ctx)
+                n_ctx=n_ctx, verbose=False)
     
     grammar_text = httpx.get("https://raw.githubusercontent.com/ggerganov/llama.cpp/master/grammars/json.gbnf").text
     grammar = LlamaGrammar.from_string(grammar_text)
@@ -31,7 +31,9 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
 
 
     Is there an evidence of deep venous thrombosis or pulmonary embolism in the note above?
-    Provide the result in a json format {label: 0/1, reason: "short explanation"}
+    Generate output as shown in examples below.
+
+    Examples:
 
     Note:
     Patient complains of leg pain and swelling. Ultrasound confirms DVT
@@ -43,23 +45,24 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
 
     output: {"reason": "Historical DVT", "label": 0}
     """
-
-    tokenized_note = note.split()
+    tokenized_note = ["Note:\n"]
+    tokenized_note.extend(note.split())
     if len(tokenized_note) < n_ctx - 60:
         note = " ".join(tokenized_note)
     else:
         note = " ".join(tokenized_note[:n_ctx - 60])
     
     # return {"reason": "dvt", "label": 1}
-    print(note)
+    print(note + prompt)
     response = llm(note + prompt,
                 max_tokens=-1,
                 repeat_penalty=1.0,
-                temperature=0.1,
+                temperature=0.5,
                 grammar=grammar,
                 echo=False,
-                **kwargs)
-                #  stop=["Q:", "\n"])
+                # stop=["Note:\n", "\n"],
+                **kwargs,
+                )
 
     try:
         res = json.loads(response['choices'][0]['text'])
