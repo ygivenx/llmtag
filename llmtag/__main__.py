@@ -5,6 +5,7 @@ import argparse
 from pathlib import Path
 import pandas as pd
 from .llm_label import get_note_label
+from tabulate import tabulate
 import csv
 
 
@@ -25,7 +26,7 @@ def main():
     if fp.exists():
         if fp.suffix == ".csv":
             df = pd.read_csv(fp)
-            print(df.head())
+            print(tabulate(df, headers='keys', tablefmt='psql'))
             for i, row in df.iterrows():
                 note = row["notes"]
                 ser = get_note_label(note, n_ctx=args.context_length)
@@ -33,7 +34,7 @@ def main():
                 reasons.append(ser["reason"])
             df["llm_label"] = labels
             df["llm_reasons"] = reasons
-            print(df.to_markdown())
+            print(tabulate(df, headers='keys', tablefmt='psql'))
             df.to_csv(args.out_file, index=False, quoting=csv.QUOTE_MINIMAL)
         
         else:
