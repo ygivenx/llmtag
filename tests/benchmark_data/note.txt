@@ -1,0 +1,4 @@
+This folder contains a:
+1. jupyter notebook that was used to troubleshoot and generate python code that can create a simulation dataset for llmtag testing.
+2. python file used to generate simulation data
+3. simulation data used to test labeling
