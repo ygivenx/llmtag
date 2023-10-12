@@ -2,6 +2,11 @@
 <img src="./llm.jpg" width="400px"/>
 </p>
 
+# LLMTag
+
+A simple interface to label clinical data using local large language models (LLMs)
+
+
 ## Getting Started (Contributors)
 
 1. Clone the llmtag repo
