@@ -17,5 +17,4 @@ def note():
 def notes():
     labels = [1, 0]
     notes = [one_note, one_note]
-    for note, label in zip(notes, labels):
-        yield note, label
+    yield zip(notes, labels)
