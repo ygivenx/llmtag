@@ -68,7 +68,7 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
 
     try:
         res = json.loads(response['choices'][0]['text'])
-        print(res)
+        # print(res)
         if "label" not in res.keys():
             res["label"] = "NA"
         if "reason" not in res.keys():
