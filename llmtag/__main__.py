@@ -33,7 +33,7 @@ def main():
                 reasons.append(ser["reason"])
             df["llm_label"] = labels
             df["llm_reasons"] = reasons
-            print(df.head())
+            print(df.to_markdown())
             df.to_csv(args.out_file, index=False, quoting=csv.QUOTE_MINIMAL)
         
         else:
