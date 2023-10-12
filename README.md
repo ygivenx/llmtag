@@ -32,7 +32,26 @@ A simple interface to label clinical data using local large language models (LLM
 
 ### Results
 
-![labeled data](./llmtag.png)
+Raw Clinical notes
+---
+
+|    |   patient_id | notes                                                                        |   label |
+|----|--------------|-------------------------------------------------------------------------------|---------|
+|  0 |            1 | Patient complains of leg pain and swelling. Ultrasound confirms DVT.         |       1 |
+|  1 |            2 | Patient experiences chest pain and shortness of breath. CT scan confirms PE. |       1 |
+|  2 |            3 | Patient has a history of DVT. No current symptoms noted.                     |       0 |
+|  3 |            4 | No complaints or symptoms related to VTE or PE.                              |       0 |
+
+LLM labeled notes
+---
+
+|    |   patient_id | notes                                                                        |   label |   llm_label | llm_reasons              |
+|----|--------------|-------------------------------------------------------------------------------|---------|-------------|--------------------------|
+|  0 |            1 | Patient complains of leg pain and swelling. Ultrasound confirms DVT.         |       1 |           1 | Ultrasound confirms DVT  |
+|  1 |            2 | Patient experiences chest pain and shortness of breath. CT scan confirms PE. |       1 |           1 | CT scan confirms PE      |
+|  2 |            3 | Patient has a history of DVT. No current symptoms noted.                     |       0 |           0 | No Symptoms found        |
+|  3 |            4 | No complaints or symptoms related to VTE or PE.                              |       0 |           0 | No evidence of VTE or PE |
+
 
 ## Libraries Used
 
