@@ -163,3 +163,4 @@ models/7B/ggml-model-q4_0.gguf
 models/7B/ggml-model-f16.gguf
 models/7B/ggml-model-q4_0-v2.gguf
 models/7B/llama-chat-main.gguf
+rad*.txt

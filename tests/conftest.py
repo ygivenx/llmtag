@@ -7,9 +7,6 @@ one_note = """
             subsegmental pulmonary artery branches in the left lower lobe. No central 
             saddle pulmonary embolus. No right-sided heart strain. Right ventricular 
             to left ventricular ratio is 0.8.
-
-            Q: Is there an evidence of deep venous thrombosis or pulmonary embolism in the note above?
-            A: 
         """
 
 @pytest.fixture
@@ -18,4 +15,7 @@ def note():
 
 @pytest.fixture
 def notes():
-    yield [one_note, one_note]
+    labels = [0, 0]
+    notes = [one_note, one_note]
+    for note, label in zip(notes, labels):
+        yield note, label
