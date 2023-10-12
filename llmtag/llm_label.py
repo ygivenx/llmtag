@@ -32,7 +32,16 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
 
     Is there an evidence of deep venous thrombosis or pulmonary embolism in the note above?
     Provide the result in a json format {label: 0/1, reason: "short explanation"}
-    Generate only one output per note. If evidence is found, the whole note is classified as positive.
+
+    Note:
+    Patient complains of leg pain and swelling. Ultrasound confirms DVT
+
+    output: {"reason": "Ultrasound confirms DVT", "label": 1}
+
+    Note:
+    Patient has a history of DVT. No current symptoms noted.
+
+    output: {"reason": "Historical DVT", "label": 0}
     """
 
     tokenized_note = note.split()

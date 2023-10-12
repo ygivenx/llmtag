@@ -38,6 +38,7 @@ def main():
         with open(args.file, "r") as f:
             note = f.read()
             res.append(get_note_label(note, n_ctx=args.context_length))
+            print(res)
             return res
     else:
         raise FileNotFoundError(f"File {args.file} not found")
