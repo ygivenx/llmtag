@@ -26,6 +26,9 @@ def main():
     if fp.exists():
         if fp.suffix == ".csv":
             df = pd.read_csv(fp)
+            print("===========================================")
+            print("Raw Clinical notes")
+            print("===========================================")
             print(tabulate(df, headers='keys', tablefmt='psql'))
             for i, row in df.iterrows():
                 note = row["notes"]
@@ -34,6 +37,9 @@ def main():
                 reasons.append(ser["reason"])
             df["llm_label"] = labels
             df["llm_reasons"] = reasons
+            print("===========================================")
+            print("LLM labeled notes")
+            print("===========================================")
             print(tabulate(df, headers='keys', tablefmt='psql'))
             df.to_csv(args.out_file, index=False, quoting=csv.QUOTE_MINIMAL)
         
