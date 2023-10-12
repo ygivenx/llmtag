@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 import pandas as pd
 from .llm_label import get_note_label
-import json
+import csv
 
 
 def main():
@@ -15,6 +15,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", help="file path for note text")
     parser.add_argument("--context-length", help="context length", default=512, type=int)
+    parser.add_argument("--out-file", help="results", default="out.csv")
     args = parser.parse_args()
     fp = Path(args.file)
 
@@ -33,13 +34,13 @@ def main():
             df["llm_label"] = labels
             df["llm_reasons"] = reasons
             print(df.head())
-            return df
+            df.to_csv(args.out_file, index=False, quoting=csv.QUOTE_MINIMAL)
         
-        with open(args.file, "r") as f:
-            note = f.read()
-            res.append(get_note_label(note, n_ctx=args.context_length))
-            print(res)
-            return res
+        else:
+            with open(args.file, "r") as f:
+                note = f.read()
+                res.append(get_note_label(note, n_ctx=args.context_length))
+                return res
     else:
         raise FileNotFoundError(f"File {args.file} not found")
 

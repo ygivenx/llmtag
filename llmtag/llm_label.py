@@ -24,49 +24,51 @@ def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
                 n_threads=n_threads,
                 n_batch=n_batch,
                 n_ctx=n_ctx, verbose=False)
-    
+
     grammar_text = httpx.get("https://raw.githubusercontent.com/ggerganov/llama.cpp/master/grammars/json.gbnf").text
     grammar = LlamaGrammar.from_string(grammar_text)
-    prompt = """
 
-
-    Is there an evidence of deep venous thrombosis or pulmonary embolism in the note above?
-    Generate output as shown in examples below.
-
-    Examples:
-
-    Note:
-    Patient complains of leg pain and swelling. Ultrasound confirms DVT
-
-    output: {"reason": "Ultrasound confirms DVT", "label": 1}
-
-    Note:
-    Patient has a history of DVT. No current symptoms noted.
-
-    output: {"reason": "Historical DVT", "label": 0}
-    """
-    tokenized_note = ["Note:\n"]
-    tokenized_note.extend(note.split())
+    tokenized_note  = note.split()
     if len(tokenized_note) < n_ctx - 60:
         note = " ".join(tokenized_note)
     else:
         note = " ".join(tokenized_note[:n_ctx - 60])
-    
+
+    prompt = f"""
+    Is there an evidence of deep venous thrombosis or pulmonary embolism in the note?
+    Generate output as shown in examples below with labels as 0/1 and a  brief reason.
+
+    Note:
+    Patient complains of leg pain and swelling. Ultrasound confirms DVT
+
+    output: {{'reason': 'Ultrasound confirms DVT', 'label': 1}}
+
+    Note:
+    {note}
+
+    Output:
+    """
+
     # return {"reason": "dvt", "label": 1}
-    print(note + prompt)
-    response = llm(note + prompt,
+    print(prompt)
+    response = llm(prompt,
                 max_tokens=-1,
                 repeat_penalty=1.0,
-                temperature=0.5,
+                temperature=0.1,
                 grammar=grammar,
                 echo=False,
-                # stop=["Note:\n", "\n"],
+               stop=["Note:\n", "\n"],
                 **kwargs,
                 )
 
     try:
         res = json.loads(response['choices'][0]['text'])
+        if "label" not in res.keys():
+            res["label"] = "NA"
+        if "reason" not in res.keys():
+            res["reason"] = "NA"
     except json.JSONDecodeError:
         return {"label": "NA", "reason": response['choices'][0]['text']}
 
+    print(res)
     return res
