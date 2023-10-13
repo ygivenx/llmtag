@@ -11,19 +11,19 @@ A simple interface to label clinical data using local large language models (LLM
 1. Base code of getting started with LLMs
 2. Try LLM's without PHI/PII issues and GPUs
 3. Simple interface for several tasks
-  3.1 Label Documents
-  3.2 Fine-tune (upcoming)
-  3.3 RAG (upcoming)
+    - [x] Label Documents
+    - [ ]  Fine-tune (upcoming)
+    - [ ]  RAG (upcoming)
 4. Be in control
-  4.1 Try any of the latest models
-  4.2 Control Context Length
-  4.3 Tailor to your specific need
+   1. Try any of the latest models
+   2. Control Context Length
+   3. Tailor to your specific need
 
 ## Getting Started (Contributors)
 
 1. Clone the llmtag repo
 2. Download weights - any llama2 compatible model should work
-    - Get llama 7B chat weights[https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf]
+    - Get [llama-7B-chat weights from HF](https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf)
     - Save it under ./models/7B
 3. Add the model path to the environment variable `MODEL`
     - create .env file in root directory of repository (e.g. touch .env)
