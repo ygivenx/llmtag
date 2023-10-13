@@ -6,6 +6,18 @@
 
 A simple interface to label clinical data using local large language models (LLMs)
 
+### Features
+
+1. Base code of getting started with LLMs
+2. Try LLM's without PHI/PII issues and GPUs
+3. Simple interface for several tasks
+  3.1 Label Documents
+  3.2 Fine-tune (upcoming)
+  3.3 RAG (upcoming)
+4. Be in control
+  4.1 Try any of the latest models
+  4.2 Control Context Length
+  4.3 Tailor to your specific need
 
 ## Getting Started (Contributors)
 
@@ -52,6 +64,26 @@ LLM labeled notes
 |  2 |            3 | Patient has a history of DVT. No current symptoms noted.                     |       0 |           0 | No Symptoms found        |
 |  3 |            4 | No complaints or symptoms related to VTE or PE.                              |       0 |           0 | No evidence of VTE or PE |
 
+Metrics on simulated data
+---
+
+#### Confusion Matrix
+
+`n = 50`
+
+|  |  | predicted | |
+| -- | -- | -- | -- |
+| Actual |  | 0 | 1 |
+|  | 0 | 27 | 1 |
+|  | 1 | 0 | 20 |
+
+
+| Metric | | 
+| -- | -- |
+| F1 Score | 0.98 |
+| Precision | 0.95 |
+| Recall | 1.0 |
+| Accuracy | 0.98 |
 
 ## Libraries Used
 
