@@ -12,7 +12,7 @@ def load_data_file(filename):
 
 def load_simulation_df1():
     '''
-    Load Simulation Data For Binary Endpoints DCA
+    Load Simulation Data For LLM labeling
     :return pd.DataFrame that contains binary data
     '''
     return load_data_file('df_simulation1.csv')
