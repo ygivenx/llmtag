@@ -22,3 +22,4 @@ def notes():
     labels = data.label.tolist()
     notes = data.notes.tolist()
     yield zip(notes, labels)
+
