@@ -13,7 +13,6 @@ load_dotenv()
  
 model_path = os.getenv("MODEL")
 
-
 def get_note_label(note, n_threads=4, n_batch=32, n_ctx=512, **kwargs):
     """
     note: str
