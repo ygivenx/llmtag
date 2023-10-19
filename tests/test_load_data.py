@@ -3,9 +3,10 @@ import pandas as pd
 
 from .load_test_data import load_data_file  # Import the new function
 
-model_path = os.path.join(os.getcwd(), 'models/7B/ggml-vocab-llama.gguf')
+model_path = os.path.join(os.getcwd(), 'models/7B/llama-2-7b-chat.Q4_K_M.gguf')
 
 def test_model_path_exists():
+    print(model_path)
     assert os.path.exists(model_path)
 
 def test_load_simdata1():
