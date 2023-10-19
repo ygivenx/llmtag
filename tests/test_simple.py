@@ -1,7 +1,7 @@
 import json
 import pytest
 from unittest.mock import patch
-from .load_test_data import load_simulation_df1, load_labeled_df1, load_gpt_sim, load_gpt_sim_small
+# from .load_test_data import load_data_file  # Import the new function
 
 def mock_get_note_label_for_single(*args, **kwargs):
     return {'choices': [{'text': json.dumps({'label': "1", 'reason': "Test reason"})}]}
