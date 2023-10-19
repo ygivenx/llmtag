@@ -8,6 +8,7 @@ from .load_test_data import load_simulation_df1, load_labeled_df1, load_gpt_sim,
 from unittest.mock import patch, MagicMock
 import json
 import pytest
+from .load_test_data import load_simulation_df1, load_labeled_df1, load_gpt_sim, load_gpt_sim_small
 
 def mock_get_note_label(*args, **kwargs):
     return {'choices': [{'text': json.dumps({'label': "1", 'reason': "Test reason"})}]}
@@ -44,4 +45,3 @@ def test_multiple_notes(mocked_get_note_label, notes):
             print(f"Returned label: {returned_label}")
             print(f"Expected label: {label}")
         assert int(returned_label) == label
-
