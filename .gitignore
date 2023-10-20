@@ -1,3 +1,6 @@
+# ignore models
+models/7B/llama-2-7b-chat.Q4_K_M.gguf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

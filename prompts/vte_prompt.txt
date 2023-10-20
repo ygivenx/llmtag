@@ -1,0 +1,12 @@
+Is there an evidence of deep venous thrombosis or pulmonary embolism in the note?
+Generate output as shown in examples below with labels as 0/1 and a brief reason.
+
+Note:
+Patient complains of leg pain and swelling. Ultrasound confirms DVT
+
+output: {'reason': 'Ultrasound confirms DVT', 'label': 1}
+
+Note:
+Patient has a history of DVT. No current symptoms noted
+
+output: {'reason': 'No Symptoms found', 'label': 0}
