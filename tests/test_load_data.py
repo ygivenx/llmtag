@@ -9,14 +9,3 @@ def test_load_simdata1():
     assert df.shape[0] == 50  # Check if it has 50 rows
     assert 'notes' in df.columns  # Check if 'notes' column exists
     assert 'label' in df.columns  # Check if 'label' column exists
-
-# Uncomment and modify other tests as needed
-# def test_load_labeled_simdata1():
-#     df = load_data_file('labeled_df1')
-#     ...
-
-# def test_llm_simple_prompt(note):
-#     ...
-
-# def test_multiple_notes(notes):
-#     ...
